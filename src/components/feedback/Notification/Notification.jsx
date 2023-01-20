@@ -8,8 +8,8 @@ const Notification = ({ message }) => (
   </div>
 );
 
-Notification.prototype = {
-  message: PropTypes.string,
+Notification.propTypes = {
+  message: PropTypes.string.isRequired,
 };
 
 export default Notification;

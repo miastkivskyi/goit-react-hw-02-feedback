@@ -4,35 +4,23 @@ import css from './FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <div>
-    <button
-      type="button"
-      name={options[0]}
-      onClick={onLeaveFeedback}
-      className={css.button}
-    >
-      Good
-    </button>
-    <button
-      type="button"
-      name={options[1]}
-      onClick={onLeaveFeedback}
-      className={css.button}
-    >
-      Neutral
-    </button>
-    <button
-      type="button"
-      name={options[2]}
-      onClick={onLeaveFeedback}
-      className={css.button}
-    >
-      Bad
-    </button>
+    {options.map(el => (
+      <button
+        key={el}
+        type="button"
+        name={el}
+        onClick={onLeaveFeedback}
+        className={css.button}
+      >
+        {el}
+      </button>
+    ))}
   </div>
 );
 
-FeedbackOptions.prototype = {
+FeedbackOptions.propTypes = {
   onLeaveFeedback: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default FeedbackOptions;

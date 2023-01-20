@@ -9,8 +9,9 @@ const Section = ({ title, children }) => (
   </div>
 );
 
-Section.prototype = {
-  title: PropTypes.string,
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Section;
